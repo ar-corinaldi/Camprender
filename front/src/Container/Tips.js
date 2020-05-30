@@ -16,7 +16,7 @@ class Tips extends Component {
         },
         {
             titulo: 'Cultivo de Yuca',
-            descripcion: "En el campo yo reaklfsdhjfal sdlk fjslks",
+            descripcion: "En el campo yo reaklfsdhjfal sdlk fjslks tiene que ser suficientemente larga",
             telefono: "320275878", tags: ["agricultura", "papa"],
             foto: "https://i.ytimg.com/vi/YTDGDPIOYfU/maxresdefault.jpg",
             like: 0,
@@ -33,8 +33,8 @@ class Tips extends Component {
                 {
                     this.state.tips.map((element, index) => {
                         return (
-                            <div key={index}>
-                                <ATip style={{width:'100%'}} tip={element}></ATip>
+                            <div key={index} style={{dispaly:'flex'}} >
+                                <ATip style={{float: 'left'}} tip={element}></ATip>
                             </div>
                         )
                     })

@@ -61,12 +61,23 @@ function CreateTips(props) {
                 <div className="col-lg-6">
                   <div className="p-5">
                     <div className="text-center">
-                      <h1 className="h4 text-gray-900 mb-4">Crea un tip</h1>
+                      <h1 className="h4 text-gray-900 mb-4">Crea un Consejo</h1>
                     </div>
 
                     <form method="POST" onSubmit={fetching}>
                       
-
+                    <div className="form-group">
+                    <label className="label-input" htmlFor="image">
+                        Upload an image
+                    </label>
+                    <input
+                        className="form-control-file"
+                        type="file"
+                        name="image"
+                        id="image"
+                        required
+                    />
+                    </div>
                     <div className="form-group">
                         <label className="label-input" htmlFor="titulo">
                           Titulo

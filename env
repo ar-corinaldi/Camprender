@@ -1,0 +1,4 @@
+DB_URL=mongodb+srv://allan9899:hola1234@pensiondb-y5joy.mongodb.net/test?authSource=admin&replicaSet=PensionDB-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true
+DB_NAME=Campender
+SECRET=yUQz+:ZS-5pK=,7bcR!%r&P)UW[Xv=
+AWS_S3_BUCKET_NAME=find-my-roomate-2
