@@ -61,7 +61,7 @@ function CreateTips(props) {
                 <div className="col-lg-6">
                   <div className="p-5">
                     <div className="text-center">
-                      <h1 className="h4 text-gray-900 mb-4">Sign Up</h1>
+                      <h1 className="h4 text-gray-900 mb-4">Crea un tip</h1>
                     </div>
 
                     <form method="POST" onSubmit={fetching}>
@@ -133,11 +133,8 @@ function CreateTips(props) {
                     
                     >
                     <option aria-label="None" value="" />
-                     <option value="atlantica">Atlántica</option>
-                      <option value="pacifica">Pacífica</option>
-                      <option value="orinoquia">Orinoquía</option>
-                      <option value="amazonas">Amazonas</option>
-                      <option value="andina">Andina</option>
+                     <option value="agricultura">Agricultura</option>
+                      <option value="ganaderia">Ganaderia</option>
                       </Select>
                        </div>
 
@@ -159,7 +156,7 @@ function CreateTips(props) {
                         />
                       </div>
                       <button type="submit" className="btn">
-                        Submit
+                        Crear
                       </button>
                     </form>
                   </div>
@@ -172,4 +169,4 @@ function CreateTips(props) {
   );
 }
 
-export default Register;
+export default CreateTips;
