@@ -21,4 +21,8 @@ router.post("/register", (req, res) => {
   req.body.image = "https://s3.amazonaws.com/elcomun/imagenes/1517526198.jpg";
   mongo.tips.create(req.body).then(data => res.json(data));
 });
+
+router.post("/registerUser", (req, res) => {
+  mongo.users.create(req.body).then(data => res.json(data));
+});
 module.exports = router;
