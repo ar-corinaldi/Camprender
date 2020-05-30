@@ -18,9 +18,9 @@ function App() {
       <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/tips" component={Tips} />
-          <Route exact path="/tips/:tipId" component={ATip} />
+          <Route exact path="/" component={Home} /> {" "}
+          <Route exact path="/tips" component={Tips} /> {" "}
+          <Route exact path="/tips/:tipId" component={ATip} /> {" "}
         </Switch>
       </Router>
     </div>
