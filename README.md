@@ -1,2 +1,2 @@
 # Camprender
-Ofrecemos la posibilidad de que los campesinos de la región tengan acceso a herramientas educativas e infromación sobre buenas prácticas de cultivo.
+Queremos que mediante un aplicativo web, los campesinos de la región tengan acceso a herramientas educativas e información sobre buenas prácticas de cultivo. Además, ofreceremos la posibilidad de que se formen grupos de colaboración y de transferencia de conocimiento entre los campesinos usuarios del aplicativo. Entre las herramientas educativas disponibles, habrá información sobre tácticas para vender los productos a los mejores precios e incluso recomendaciones sobre los tipos de cultivos más rentables según el mercado y el lugar donde se quiera realizar la plantación.
