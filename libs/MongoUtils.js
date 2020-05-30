@@ -37,7 +37,21 @@ function MongoUtils() {
         .insertOne(tip).finally(() => client.close());
     });
   };
+
+  mu.users.create = (user) => {
+    return mu.connect().then((client) => {
+      const users = client.db(DB_NAME).collection("Users");
+      // console.log("En mongo utils",user);
+      console.log({user})
+      return users
+        .insertOne(user).finally(() => client.close());
+    });
+  };
   return mu;
+
+
 }
+
+
 
 module.exports = MongoUtils();
