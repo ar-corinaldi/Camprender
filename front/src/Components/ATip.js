@@ -1,24 +1,121 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Comment from './Comment';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        marginRight: '20px',
+        float: "left",
+        maxWidth: 345,
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+    },
+    expand: {
+        transform: 'rotate(0deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest,
+        }),
+    },
+    expandOpen: {
+        transform: 'rotate(180deg)',
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
+}));
 
 const ATip = (props) => {
-    return (
-        <div sytle={{width: "100%"}} class="container">
-                <div class="card">
-                    <h3 class="title">{props.tip.titulo}</h3>
-                    <div class="bar">
-                        <div class="emptybar"></div>
-                        <div class="filledbar"></div>
+    const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+    let comments = null;
+
+    comments = (
+        < div >
+            {props.tip.comentarios.map((element) => {
+                return (
+                    <div>
+                        <Comment comment={props.tip.comentarios}></Comment>
                     </div>
-                    <div class="imagen">
-                        <img class="imagenImagen" src={props.tip.foto} alt="fotoTip"></img>
-                    </div>
-                </div>
-            <div class="card2">
-                <h3 style={{color: "white"}}>Descripcion</h3>
-                <h2 class="descripcion">{props.tip.descripcion}</h2>
-            </div>
-        </div>
+                )
+            })}
+        </div >
     )
+
+    return (
+        <Card className={classes.root}>
+            <CardHeader
+                avatar={
+                    <Avatar aria-label="recipe" className={classes.avatar}>
+                        R
+          </Avatar>
+                }
+                action={
+                    <IconButton aria-label="settings">
+                        <MoreVertIcon />
+                    </IconButton>
+                }
+                title={props.tip.titulo}
+                subheader="September 14, 2016"
+            />
+            <CardMedia
+                className={classes.media}
+                image={props.tip.foto}
+                title="Paella dish"
+            />
+            <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {props.tip.descripcion}
+                </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                </IconButton>
+                <IconButton aria-label="share">
+                    <ShareIcon />
+                </IconButton>
+                <IconButton
+                    className={clsx(classes.expand, {
+                        [classes.expandOpen]: expanded,
+                    })}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                >
+                    <ExpandMoreIcon />
+                </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <CardContent>
+                    <Typography paragraph>Comentarios:</Typography>
+                    {comments}
+                </CardContent>
+            </Collapse>
+        </Card>
+    );
 }
 
 export default ATip;
