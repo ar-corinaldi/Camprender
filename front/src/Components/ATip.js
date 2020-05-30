@@ -1,9 +1,8 @@
 import React from 'react';
-import './ATip.css'
 
 const ATip = (props) => {
     return (
-        <div class="container">
+        <div sytle={{width: "100%"}} class="container">
                 <div class="card">
                     <h3 class="title">{props.tip.titulo}</h3>
                     <div class="bar">
@@ -11,11 +10,12 @@ const ATip = (props) => {
                         <div class="filledbar"></div>
                     </div>
                     <div class="imagen">
-                        <img src={props.tip.foto} alt="fotoTip"></img>
+                        <img class="imagenImagen" src={props.tip.foto} alt="fotoTip"></img>
                     </div>
                 </div>
             <div class="card2">
-                <h3>{props.tip.titulo}</h3>
+                <h3 style={{color: "white"}}>Descripcion</h3>
+                <h2 class="descripcion">{props.tip.descripcion}</h2>
             </div>
         </div>
     )

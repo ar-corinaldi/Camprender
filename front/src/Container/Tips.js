@@ -8,7 +8,8 @@ class Tips extends Component {
         tips: [{
             titulo: 'Cultivo de papas',
             descripcion: "En el campo yo realizo el cultivo de 200000 oaoas",
-            telefono: "320275888", tags: ["agricultura", "papa"],
+            telefono: "320275888", 
+            tags: ["agricultura", "papa"],
             foto: "https://agrotendencia.tv/agropedia/wp-content/uploads/2019/10/agrotendencia-papa-20.jpg",
             like: 0,
             comentarios: [{ comentario: "wow", telefono: "123456789" }]
@@ -42,7 +43,7 @@ class Tips extends Component {
         )
 
         return (
-            <div>
+            <div style={{marginTop: "30px"}}>
                 {lista}
             </div>
         )
