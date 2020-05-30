@@ -91,44 +91,52 @@ function CreateUser(props) {
                       />
                     </div>
 
-                    <div className="form-group col-lg-12">
-                      <InputLabel htmlFor="region">Elige tu región</InputLabel>
-                      <Select
-                        native
-                        className="form-control"
-                        value={state.region}
-                        onChange={handleChange}
-                        inputProps={{
-                          name: "region",
-                          id: "region",
-                        }}
-                        name="region"
-                      >
-                        <option aria-label="None" value="" />
-                        <option value="atlantica">Atlántica</option>
-                        <option value="pacifica">Pacífica</option>
-                        <option value="orinoquia">Orinoquía</option>
-                        <option value="amazonas">Amazonas</option>
-                        <option value="andina">Andina</option>
-                      </Select>
-                    </div>
-
                     <div className="form-group">
                       <label
                         className="label-input"
                         htmlFor="phone_register"
                         className="primary"
                       >
-                        ¿Cuál es tu número de celular?
+                        ¿Cuál es tu número de telefono?
                       </label>
                       <input
                         type="number"
-                        name="celular"
-                        id="celular"
+                        name="telefono"
+                        id="telefono"
                         className="form-control"
                         required
                       />
                     </div>
+
+                    <div className="form-group">
+                        <label className="label-input" htmlFor="password">
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          name="password"
+                          id="passwordRegister"
+                          className="form-control"
+                          required
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label
+                          className="label-input"
+                          htmlFor="password2Register"
+                        >
+                          Repeat password
+                        </label>
+                        <input
+                          type="password"
+                          name="password2Register"
+                          id="password2Register"
+                          className="form-control"
+                          required
+                        />
+                      </div>
+
+                    
                     <button type="submit" className="btn">
                       ¡Y listo, ya terminaste!
                     </button>

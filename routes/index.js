@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongo = require("../libs/MongoUtils");
-const AWS = require("../S3Lib/s3");
+const AWS = require("../libs/s3");
 const multer = require("multer");
 const storage = multer.memoryStorage({
   destination: (req, file, cb) => {
