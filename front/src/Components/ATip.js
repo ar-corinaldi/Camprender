@@ -51,10 +51,11 @@ const ATip = (props) => {
     };
 
     let comments = null;
-
+    let filteredTips = props.tip.comentarios;
     comments = (
         < div >
-            {props.tip.comentarios.map((element) => {
+            {
+                filteredTips.map((element) => {
                 return (
                     <div>
                         <Comment comment={props.tip.comentarios}></Comment>
