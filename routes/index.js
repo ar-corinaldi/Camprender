@@ -1,7 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const mongo = require("../libs/MongoUtils");
-
+const AWS = require("../S3Lib/s3");
+const multer = require("multer");
+const storage = multer.memoryStorage({
+  destination: (req, file, cb) => {
+    cb(null, "");
+  },
+});
+const upload = multer({ storage: storage });
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
@@ -19,10 +26,10 @@ router.post("/register", (req, res) => {
   req.body.tags = tag;
   console.log(req.body);
   req.body.image = "https://s3.amazonaws.com/elcomun/imagenes/1517526198.jpg";
-  mongo.tips.create(req.body).then(data => res.json(data));
+  mongo.tips.create(req.body).then((data) => res.json(data));
 });
 
 router.post("/registerUser", (req, res) => {
-  mongo.users.create(req.body).then(data => res.json(data));
+  mongo.users.create(req.body).then((data) => res.json(data));
 });
 module.exports = router;
