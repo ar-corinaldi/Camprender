@@ -21,6 +21,7 @@ import Badge from "@material-ui/core/Badge";
 import TextField from "@material-ui/core/TextField";
 import Comment from "./Comment";
 import ToastComponent from "./ToastComponent";
+import Input from "@material-ui/core/Input";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
+
+const capitalize = (str, lower = false) =>
+  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+    match.toUpperCase()
+  );
 
 const ATip = (props) => {
   const [showToast, setShowToast] = useState(false);
@@ -138,7 +144,7 @@ Constante para dar like. Todavia no terminado
             </IconButton>
           }
           title={props.tip.titulo}
-          subheader={"Region: " + props.tip.region}
+          subheader={"Region: " + capitalize(props.tip.region)}
         />
         <CardMedia
           className={classes.media}
@@ -149,11 +155,10 @@ Constante para dar like. Todavia no terminado
           <Typography variant="body2" color="textSecondary" component="p">
             {props.tip.descripcion}
             <br></br>
-            Region:
-            {props.tip.region}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
+<<<<<<< HEAD
           {props.user ? (
             <form
               method="POST"
@@ -173,6 +178,20 @@ Constante para dar like. Todavia no terminado
               </div>
             </form>
           )}
+=======
+          <form method="POST" action={`/updateComment/"${props.tip._id}/{$user.telefono}`}>
+            <div className="form-group">
+              <input
+                placeholder="Añade un comentario"
+                name="comentario"
+                required
+                type="text"
+                id="comentario"
+                className="form-control"
+              />
+            </div>
+          </form>
+>>>>>>> 1ce41b608988b69e7c5371b994b09611c724c969
           <Badge
             className="pointer"
             color="secondary"

@@ -10,7 +10,7 @@ function Navbar(props) {
 
   let login = (
     <Link style={navStyle} to="/login">
-      <li>Login</li>
+      <strong><li>Inicia Sesión</li></strong>
     </Link>
   );
 
@@ -22,22 +22,21 @@ function Navbar(props) {
         history.goBack();
       }}
     >
-      <li>Logout</li>
+      <strong><li>Cerrar Sesión</li></strong>
     </Link>
   );
 
   let welcome = <li>Welcome {props.user ? props.user.telefono : ""}</li>;
   return (
     <nav>
-      <Link style={navStyle} to="/">
-        <h3>Logo</h3>
-      </Link>
+      <img src={require("../CamprenderLogo.png")}>
+      </img>
       <ul className="nav-links">
         <Link style={navStyle} to="/register">
-          <li>Create tip</li>
+          <strong><li>Crea un Consejo</li></strong>
         </Link>
         <Link style={navStyle} to="/tips">
-          <li>List</li>
+         <strong><li>Consejos</li></strong> 
         </Link>
         {!props.user ? login : welcome}
         {props.user ? logout : ""}
