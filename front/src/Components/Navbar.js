@@ -29,7 +29,7 @@ function Navbar(props) {
   let welcome = <li>Welcome {props.user ? props.user.telefono : ""}</li>;
   return (
     <nav>
-      <img src={require("../CamprenderLogo.jpeg")}>
+      <img src={require("../CamprenderLogo.png")}>
       </img>
       <ul className="nav-links">
         <Link style={navStyle} to="/register">
