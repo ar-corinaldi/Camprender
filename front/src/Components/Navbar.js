@@ -39,7 +39,11 @@ function Navbar(props) {
     <nav>
       <img src={require("../CamprenderLogo.png")} width="400" height="90">
       </img>
+      
       <ul className="nav-links">
+      <Link style={navStyle} to="/">
+         <strong><li>Inicio</li></strong> 
+        </Link>
         {!props.user ? "" : crear}
 
         <Link style={navStyle} to="/tips">

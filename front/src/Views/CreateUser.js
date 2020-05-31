@@ -3,8 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
+import { useHistory } from 'react-router-dom';
+
 
 function CreateUser(props) {
+
+  let history = useHistory();
+
   const useStyles = makeStyles((theme) => ({
     container: {
       display: "flex",
@@ -140,6 +145,7 @@ function CreateUser(props) {
                       type="submit"
                       class="btn btn-primary"
                       //className="btn"
+              
                     >
                       Registrar
                     </button>
