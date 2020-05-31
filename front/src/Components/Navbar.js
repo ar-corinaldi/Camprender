@@ -27,7 +27,7 @@ function Navbar(props) {
     </Link>
   );
 
-  let welcome = <li>Welcome {props.user ? props.user.telefono : ""}</li>;
+  let welcome = <li>Bienvenido {props.user ? props.user.telefono : ""}</li>;
   
   let crear=  (
     <Link style={navStyle} to="/register">
