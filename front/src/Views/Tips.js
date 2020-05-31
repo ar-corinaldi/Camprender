@@ -11,20 +11,39 @@ function Tips(props) {
   const [search, setSearch] = useState("");
 
   /*
-  Const para filtrar por categoria
-  */
-  const [search2, setSearch2] = useState("");
-
-  /*
-  Const para filtrar por categoria
+  Const para filtrar por agro
   */
   const [agro, setAgro] = useState("");
 
   /*
-  Const para filtrar por categoria
+  Const para filtrar por ganaderia
   */
   const [ganaderia, setGanaderia] = useState("");
 
+  /*
+  Const para filtrar por alta
+  */
+  const [alta, setAlta] = useState("");
+
+  /*
+ Const para filtrar por pac
+ */
+  const [pac, setPac] = useState("");
+
+  /*
+ Const para filtrar por Ori
+ */
+  const [ori, setOri] = useState("");
+
+  /*
+ Const para filtrar por amaz
+ */
+  const [amaz, setAmaz] = useState("");
+
+  /*
+ Const para filtrar por Andina
+ */
+  const [andi, setAnd] = useState("");
   /*
   Const para buscar con base en el titulo por categoria
   */
@@ -32,10 +51,6 @@ function Tips(props) {
 
   const updateSearch = (event) => {
     setSearch(event.target.value.substr(0, 20));
-  };
-
-  const updateSearch2 = (event) => {
-    setSearch2(event.target.value.substr(0, 20));
   };
 
   const updateTituloBuscado = (event) => {
@@ -70,13 +85,97 @@ function Tips(props) {
     }
   }
 
+  /*
+  Función para saber si ganaderia está oprimido o no
+  */
+  function updateAnd() {
+    // Get the checkbox
+    var checkBox = document.getElementById("cAnd");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      setAnd("andina");
+    } else {
+      setAnd("");
+    }
+  }
+
+  /*
+  Función para saber si ganaderia está oprimido o no
+  */
+  function updateAlta() {
+    // Get the checkbox
+    var checkBox = document.getElementById("cAtla");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      setAlta("atlantica");
+    } else {
+      setAlta("");
+    }
+  }
+
+  /*
+  Función para saber si ganaderia está oprimido o no
+  */
+  function updatePac() {
+    // Get the checkbox
+    var checkBox = document.getElementById("cPac");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      setPac("pacifica");
+    } else {
+      setPac("");
+    }
+  }
+
+  /*
+  Función para saber si ganaderia está oprimido o no
+  */
+  function updateOri() {
+    // Get the checkbox
+    var checkBox = document.getElementById("cOri");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      setOri("orinoquia");
+    } else {
+      setOri("");
+    }
+  }
+
+  /*
+  Función para saber si ganaderia está oprimido o no
+  */
+  function updateAmaz() {
+    // Get the checkbox
+    var checkBox = document.getElementById("cAmaz");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      setAmaz("amazonas");
+    } else {
+      setAmaz("");
+    }
+  }
+
   let filteredTips = state.tips.filter((tip) => {
     var cond1 = tip.region.toLowerCase().indexOf(search) !== -1;
     //var cond2 = tip.tags[0].toLowerCase().indexOf(search2) !== -1;
     var condTitulo = tip.titulo.toLowerCase().indexOf(tituloBuscado) !== -1;
     var condAgro = tip.tags[0].toLowerCase().indexOf(agro) !== -1;
     var condGanaderia = tip.tags[0].toLowerCase().indexOf(ganaderia) !== -1;
-    return condTitulo && cond1 && condAgro && condGanaderia;
+    var condAtla = tip.region.toLowerCase().indexOf(alta) !== -1;
+    var condPac = tip.region.toLowerCase().indexOf(pac) !== -1;
+    var condori = tip.region.toLowerCase().indexOf(ori) !== -1;
+    var condAmaz = tip.region.toLowerCase().indexOf(amaz) !== -1;
+    var condAnd = tip.region.toLowerCase().indexOf(andi) !== -1;
+    return (
+      condTitulo &&
+      condAgro &&
+      condGanaderia &&
+      condAnd &&
+      condAtla &&
+      condPac &&
+      condori &&
+      condAmaz
+    );
   });
 
   useEffect(() => {
@@ -118,10 +217,12 @@ function Tips(props) {
         }}
       >
         <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
-        <input type="text" value={search} onChange={updateSearch} />
-        <InputLabel htmlFor="tags">
-          Filtrar por Categoria Agro / Ganaderia
-        </InputLabel>
+        <input type="checkbox" id="cAtla" onChange={updateAlta} /> Atlántica
+        <input type="checkbox" id="cPac" onChange={updatePac} /> Pacífica
+        <input type="checkbox" id="cOri" onChange={updateOri} /> Orinoquía
+        <input type="checkbox" id="cAmaz" onChange={updateAmaz} /> Amazonas
+        <input type="checkbox" id="cAnd" onChange={updateAnd} /> Andina
+        <InputLabel htmlFor="tags">Filtrar por Categoría:</InputLabel>
         <input type="checkbox" id="cAgro" onChange={updateAgro} /> Agricultura
         <input
           type="checkbox"
@@ -134,7 +235,11 @@ function Tips(props) {
         {filteredTips.map((element, index) => {
           return (
             <div key={index} style={{ dispaly: "flex" }} className="m-2">
-              <ATip style={{ float: "left" }} tip={element} user={props.user}></ATip>
+              <ATip
+                style={{ float: "left" }}
+                tip={element}
+                user={props.user}
+              ></ATip>
             </div>
           );
         })}
