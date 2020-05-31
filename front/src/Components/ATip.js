@@ -111,8 +111,6 @@ Constante para dar like. Todavia no terminado
           <Typography variant="body2" color="textSecondary" component="p">
             {props.tip.descripcion}
             <br></br>
-            Region:
-            {props.tip.region}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
