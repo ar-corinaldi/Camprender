@@ -53,9 +53,6 @@ function Tips(props) {
   };
 
   let filteredTips = state.tips.filter((tip) => {
-    //console.log("Search", search);
-    //console.log("Search2", search2);
-    //console.log(tip);
     var cond1 = tip.region.toLowerCase().indexOf(search) !== -1;
     var cond2 = tip.tags[0].toLowerCase().indexOf(search2) !== -1;
     var condTitulo = tip.titulo.toLowerCase().indexOf(tituloBuscado) !== -1;
