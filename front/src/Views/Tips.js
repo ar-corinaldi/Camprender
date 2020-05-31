@@ -87,7 +87,7 @@ function Tips(props) {
     var cond2 = tip.tags[0].toLowerCase().indexOf(search2) !== -1;
     var condTitulo = tip.titulo.toLowerCase().indexOf(tituloBuscado) !== -1;
 
-    return cond1; //condTitulo && cond1 && cond2;
+    return condTitulo && cond1 && cond2;
   });
 
   useEffect(() => {
