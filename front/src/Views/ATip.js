@@ -83,7 +83,7 @@ const ATip = (props) => {
             />
             <CardMedia
                 className={classes.media}
-                image={props.tip.foto}
+                image={props.tip.image}
                 title="Paella dish"
             />
             <CardContent>
