@@ -43,7 +43,7 @@ function Login(props) {
                   <form onSubmit={fetching}>
                     <div className="form-group">
                       <label className="label-input" htmlFor="telefono">
-                        <p>Telefono</p>
+                        <p>Celular</p>
                       </label>
                       <input
                         className="form-control"
@@ -55,7 +55,7 @@ function Login(props) {
                     </div>
                     <div className="form-group">
                       <label className="label-input" htmlFor="password">
-                        <p>Password</p>
+                        <p>Contraseña</p>
                       </label>
                       <input
                         type="password"
@@ -66,7 +66,7 @@ function Login(props) {
                       />
                     </div>
                     <button type="submit" className="btn">
-                      Submit
+                      Ingresa
                     </button>
                   </form>
                   <div className="register">
@@ -75,7 +75,7 @@ function Login(props) {
                       className="label-input"
                       to="/registerUser"
                     >
-                      <p>Don't have an account? Sign up</p>
+                      <p>¿No tienes una cuenta? Oprime aquí</p>
                     </Link>
                   </div>
                 </div>
