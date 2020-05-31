@@ -29,7 +29,7 @@ function Login(props) {
                 <img
                   width="450"
                   height="600"
-                  src="https://user-images.githubusercontent.com/26877363/81580636-4f595c80-9373-11ea-834a-b6acc18583ae.jpg"
+                  src="https://s3.amazonaws.com/elcomun/imagenes/1528219067.jpg"
                   alt="Prendas de vestir"
                 ></img>
               </div>
