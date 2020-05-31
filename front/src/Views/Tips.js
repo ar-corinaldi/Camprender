@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ATip from "../Components/ATip";
 import InputLabel from "@material-ui/core/InputLabel";
+import './Tips.css'; // Tell webpack that Button.js uses these styles
 
 function Tips(props) {
   const [state, setState] = useState({ tips: [] });
@@ -78,7 +79,7 @@ function Tips(props) {
   return (
     <div style={{ marginTop: "30px" }}>
       <InputLabel htmlFor="tags">Ingresa el titulo que te interesa</InputLabel>
-      <input type="text" value={tituloBuscado} onChange={updateTituloBuscado} />
+      <input type="text" class="sinbordefondo" value={tituloBuscado} onChange={updateTituloBuscado} />
       <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
       <input type="text" value={search} onChange={updateSearch} />
       <InputLabel htmlFor="tags">
