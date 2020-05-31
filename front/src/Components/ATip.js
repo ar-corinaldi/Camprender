@@ -69,6 +69,8 @@ Constante para dar like. Todavia no terminado
       if (dioLike) setLike(tmpLikes - 1);
       else setLike(tmpLikes + 1);
       setDioLike(!dioLike);
+      console.log(props.tip);
+      fetch("/tip/:id");
     }
   };
 

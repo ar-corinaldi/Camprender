@@ -73,7 +73,7 @@ function Login(props) {
                     <Link
                       style={{ WebkitTextFillColor: "black" }}
                       className="label-input"
-                      to="/register"
+                      to="/registerUser"
                     >
                       <p>¿No tienes una cuenta? Oprime aquí</p>
                     </Link>
