@@ -1,24 +1,19 @@
-import React, {useRef} from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 function Login(props) {
-  
+  let history = useHistory();
   const refTelefono = useRef();
   const refPassword = useRef();
-  const refLink = useRef();
   const fetching = (e) => {
     e.preventDefault();
     let user = {
       telefono: refTelefono.current.value,
-      password: refPassword.current.value
-    }
+      password: refPassword.current.value,
+    };
     props.setUser(user);
-    console.log(props);
-    console.log(refLink.current);
-    // window.location = "/";
-    
+    history.goBack();
   };
-
 
   return (
     <div className="row justify-content-center">
@@ -79,7 +74,6 @@ function Login(props) {
                       style={{ WebkitTextFillColor: "black" }}
                       className="label-input"
                       to="/register"
-                      ref={refLink}
                     >
                       <p>Don't have an account? Sign up</p>
                     </Link>

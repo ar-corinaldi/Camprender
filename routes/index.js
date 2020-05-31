@@ -44,6 +44,10 @@ router.post("/register", upload.single("image"), async (req, res) => {
   mongo.tips.create(req.body).then((data) => res.json(data));
 });
 
+router.post("/tips", (req,res) => {
+  res.json(req.params);
+});
+
 router.post("/registerUser", (req, res) => {
   mongo.users.create(req.body).then((data) => res.json(data));
 });
