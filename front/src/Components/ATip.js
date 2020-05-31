@@ -21,6 +21,7 @@ import Badge from "@material-ui/core/Badge";
 import TextField from "@material-ui/core/TextField";
 import Comment from "./Comment";
 import ToastComponent from "./ToastComponent";
+import Input from "@material-ui/core/Input";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -116,13 +117,17 @@ Constante para dar like. Todavia no terminado
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <form>
-            <TextField
-              id="outlined-uncontrolled"
-              label="Añade Comentario "
-              variant="outlined"
-              size="small"
-            />
+          <form method="POST" action={`/updateComment/"${props.tip._id}/{$user.telefono}`}>
+            <div className="form-group">
+              <input
+                placeholder="Añade un comentario"
+                name="comentario"
+                required
+                type="text"
+                id="comentario"
+                className="form-control"
+              />
+            </div>
           </form>
           <Badge
             className="pointer"

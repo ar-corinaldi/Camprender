@@ -1,4 +1,5 @@
 const mongodb = require("mongodb");
+const { ObjectId } = require("mongodb").ObjectId;
 const MongoClient = mongodb.MongoClient;
 require("dotenv").config();
 
@@ -69,6 +70,28 @@ function MongoUtils() {
       return users.insertOne(user).finally(() => client.close());
     });
   };
+
+  mu.tips.updateComment = (comment, _id) => {
+    return mu.connect().then((client) => {
+      const tips = client.db(DB_NAME).collection("Tips");
+      tips.findOne().then((tip) => {
+        tip.commentarios.push(comment);
+      });
+      console.log("tip updated", tip);
+      // return tips.findAndUpdate(
+      //   { _id: ObjectId(_id) },
+      //   {
+      //     $addToSet: {
+      //       comentarios: {
+      //         comentario: comment.comentario,
+      //         telefono: "9879879",
+      //       },
+      //     },
+      //   }
+      // );
+    });
+  };
+
   return mu;
 }
 

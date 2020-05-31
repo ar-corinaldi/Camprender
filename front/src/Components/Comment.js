@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Comentario = (props) => {
+  console.log(props.comment)
   return (
       <div>
           <h1>{props.comment[0].telefono}</h1>
