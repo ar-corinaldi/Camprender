@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Navbar";
+import Navbar from "./Views/Navbar";
 
-import Tips from "./Container/Tips";
-import ATip from "./Components/ATip";
+import Tips from "./Views/Tips";
+import ATip from "./Views/ATip";
 
-import Home from "./Home";
+import Home from "./Views/Home";
 
-import CreateTips from "./CreateTips";
+import CreateTips from "./Views/CreateTips";
 
-import CreateUser from "./CreateUser";
+import CreateUser from "./Views/CreateUser";
 
 function App() {
   const [nombre, setNombre] = useState("prueba");
   return (
     <div className="App">
-      <header className="App-header">Hello World!</header>
-      <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
       <Router>
+        <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />{" "}
           <Route exact path="/tips" component={Tips} />{" "}
