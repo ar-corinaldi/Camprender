@@ -7,7 +7,7 @@ function Navbar(props) {
     <nav>
       <h3>Logo</h3>
       <ul className="nav-links">
-        <Link to='/register'>
+        <Link to="/register">
         <li>Create tip</li>
         </Link>
         <li>List</li>

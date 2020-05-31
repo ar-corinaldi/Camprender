@@ -16,8 +16,8 @@ function App() {
   const [nombre, setNombre] = useState("prueba");
   return (
     <div className="App">
-      <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
       <Router>
+        <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />{" "}
           <Route exact path="/tips" component={Tips} />{" "}
