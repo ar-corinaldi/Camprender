@@ -14,11 +14,10 @@ nav {
   background: rgb(73, 79, 82);
   color: white;
 }
-.toast-position {
-  position: "relative";
-  top: "10px";
-  right: "20px";
+.pointer {
+  cursor: pointer;
 }
+
 .nav-links {
   width: 40%;
   display: flex;
