@@ -200,7 +200,13 @@ Constante para dar like. Todavia no terminado
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>Comentarios:</Typography>
-            {comments}
+            {props.tip.comentarios.map((element) => (
+              <div key={element.telefono}>
+                <p>
+                  {element.telefono} y {element.comentario}
+                </p>
+              </div>
+            ))}
           </CardContent>
         </Collapse>
       </Card>

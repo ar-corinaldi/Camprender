@@ -216,8 +216,9 @@ function Tips(props) {
           paddingRight: "20px",
         }}
       >
-        <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
-        <input type="checkbox" id="cAtla" onChange={updateAlta} /> Atlántica
+        <InputLabel htmlFor="tags">Filtrar por Region:</InputLabel>
+        <input type="checkbox" id="cAtla" onChange={updateAlta} />{" "}
+        <InputLabel htmlFor="tags">Atlántica</InputLabel>
         <input type="checkbox" id="cPac" onChange={updatePac} /> Pacífica
         <input type="checkbox" id="cOri" onChange={updateOri} /> Orinoquía
         <input type="checkbox" id="cAmaz" onChange={updateAmaz} /> Amazonas
