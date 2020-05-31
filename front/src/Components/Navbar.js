@@ -10,7 +10,7 @@ function Navbar(props) {
 
   let login = (
     <Link style={navStyle} to="/login">
-      <li>Login</li>
+      <strong><li>Inicia Sesión</li></strong>
     </Link>
   );
 
@@ -22,7 +22,7 @@ function Navbar(props) {
         history.goBack();
       }}
     >
-      <li>Logout</li>
+      <strong><li>Cerrar Sesión</li></strong>
     </Link>
   );
 
@@ -30,14 +30,14 @@ function Navbar(props) {
   return (
     <nav>
       <Link style={navStyle} to="/">
-        <h3>Logo</h3>
+        <strong><h3>Logo</h3></strong>
       </Link>
       <ul className="nav-links">
         <Link style={navStyle} to="/register">
-          <li>Create tip</li>
+          <strong><li>Crea un Consejo</li></strong>
         </Link>
         <Link style={navStyle} to="/tips">
-          <li>List</li>
+         <strong><li>Consejos</li></strong> 
         </Link>
         {!props.user ? login : welcome}
         {props.user ? logout : ""}
