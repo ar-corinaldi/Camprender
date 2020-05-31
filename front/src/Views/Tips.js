@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ATip from "./ATip";
+import ATip from "../Components/ATip";
 import InputLabel from "@material-ui/core/InputLabel";
 
 function Tips(props) {

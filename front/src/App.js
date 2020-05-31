@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Views/Navbar";
+import Navbar from "./Components/Navbar";
 
 import Tips from "./Views/Tips";
-import ATip from "./Views/ATip";
+import ATip from "./Components/ATip";
 
 import Home from "./Views/Home";
 
