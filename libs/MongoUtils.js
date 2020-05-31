@@ -32,9 +32,32 @@ function MongoUtils() {
     return mu.connect().then((client) => {
       const tips = client.db(DB_NAME).collection("Tips");
       // console.log("En mongo utils",tip);
-      console.log({tip})
-      return tips
-        .insertOne(tip).finally(() => client.close());
+      console.log({ tip });
+      return tips.insertOne(tip).finally(() => client.close());
+    });
+  };
+
+  /**
+   * Metodo para actualizar un tip. Todavia no está terminado.
+   */
+  mu.tips.update = (celular, tip) => {
+    return mu.connect().then((client) => {
+      const tips = client.db(DB_NAME).collection("Tips");
+      // console.log("En mongo utils",tip);
+      console.log({ tip });
+      const query = { _id: ObjectId(roomId) };
+      const update = {
+        $set: {
+          availability: updateCamps,
+        },
+      };
+      console.log(update);
+      return feeds
+        .findOneAndUpdate(query, update)
+        .catch((err) =>
+          console.error(`Failed to find and update document: ${err}`)
+        )
+        .finally(() => client.close());
     });
   };
 
@@ -42,16 +65,11 @@ function MongoUtils() {
     return mu.connect().then((client) => {
       const users = client.db(DB_NAME).collection("Users");
       // console.log("En mongo utils",user);
-      console.log({user})
-      return users
-        .insertOne(user).finally(() => client.close());
+      console.log({ user });
+      return users.insertOne(user).finally(() => client.close());
     });
   };
   return mu;
-
-
 }
-
-
 
 module.exports = MongoUtils();

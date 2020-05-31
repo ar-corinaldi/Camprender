@@ -1,24 +1,19 @@
-import React, {useRef} from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 function Login(props) {
-  
+  let history = useHistory();
   const refTelefono = useRef();
   const refPassword = useRef();
-  const refLink = useRef();
   const fetching = (e) => {
     e.preventDefault();
     let user = {
       telefono: refTelefono.current.value,
-      password: refPassword.current.value
-    }
+      password: refPassword.current.value,
+    };
     props.setUser(user);
-    console.log(props);
-    console.log(refLink.current);
-    // window.location = "/";
-    
+    history.goBack();
   };
-
 
   return (
     <div className="row justify-content-center">
@@ -34,7 +29,7 @@ function Login(props) {
                 <img
                   width="450"
                   height="600"
-                  src="https://user-images.githubusercontent.com/26877363/81580636-4f595c80-9373-11ea-834a-b6acc18583ae.jpg"
+                  src="https://s3.amazonaws.com/elcomun/imagenes/1528219067.jpg"
                   alt="Prendas de vestir"
                 ></img>
               </div>
@@ -79,7 +74,6 @@ function Login(props) {
                       style={{ WebkitTextFillColor: "black" }}
                       className="label-input"
                       to="/register"
-                      ref={refLink}
                     >
                       <p>Don't have an account? Sign up</p>
                     </Link>

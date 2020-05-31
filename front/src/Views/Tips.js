@@ -1,35 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ATip from "./ATip";
+import ATip from "../Components/ATip";
 import InputLabel from "@material-ui/core/InputLabel";
 
 function Tips(props) {
-  // let tempState = {
-  //   tips: [
-  //     {
-  //       region: 'pacifica',
-  //       titulo: "Cultivo de papas",
-  //       descripcion: "En el campo yo realizo el cultivo de 200000 oaoas",
-  //       telefono: "320275888",
-  //       tags: ["agricultura", "papa"],
-  //       foto:
-  //         "https://agrotendencia.tv/agropedia/wp-content/uploads/2019/10/agrotendencia-papa-20.jpg",
-  //       like: 0,
-  //       comentarios: [{ comentario: "wow", telefono: "123456789" }],
-  //     },
-  //     {
-  //       region: 'atlantica',
-  //       titulo: "Cultivo de Yuca",
-  //       descripcion:
-  //         "En el campo yo reaklfsdhjfal sdlk fjslks tiene que ser suficientemente larga",
-  //       telefono: "320275878",
-  //       tags: ["agricultura", "papa"],
-  //       foto: "https://i.ytimg.com/vi/YTDGDPIOYfU/maxresdefault.jpg",
-  //       like: 0,
-  //       comentarios: [{ comentario: "WOOOW", telefono: "123456589" }],
-  //     },
-  //   ],
-  // };
-
   const [state, setState] = useState({ tips: [] });
 
   /*
@@ -87,7 +60,7 @@ function Tips(props) {
     var cond2 = tip.tags[0].toLowerCase().indexOf(search2) !== -1;
     var condTitulo = tip.titulo.toLowerCase().indexOf(tituloBuscado) !== -1;
 
-    return cond1; //condTitulo && cond1 && cond2;
+    return condTitulo && cond1 && cond2;
   });
 
   useEffect(() => {
@@ -145,13 +118,15 @@ function Tips(props) {
           </label>
         </div>
       </div>
-      {filteredTips.map((element, index) => {
-        return (
-          <div key={index} style={{ dispaly: "flex" }}>
-            <ATip style={{ float: "left" }} tip={element}></ATip>
-          </div>
-        );
-      })}
+      <div className="d-flex flex-wrap justify-content-center">
+        {filteredTips.map((element, index) => {
+          return (
+            <div key={index} style={{ dispaly: "flex" }} className="m-2">
+              <ATip style={{ float: "left" }} tip={element}></ATip>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

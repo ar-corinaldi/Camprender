@@ -25,13 +25,18 @@ function Home(props) {
   const butStyle={
     color: 'Black'
   };
+
+
   return (
 
     
     <div>
+      {/* <h3 className="gabriela-font">Thanks for everything</h3> */}
       <img
         src="https://png.pngtree.com/element_our/md/20180411/md_5ace0628840fa.jpg"
         //alt="Prendas de vestir"
+        height="300"
+        width="300"
       ></img>
       <ul>
         <Link style={butStyle} to="/registerUser">

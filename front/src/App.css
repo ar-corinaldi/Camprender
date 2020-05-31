@@ -2,7 +2,11 @@
   text-align: center;
 }
 
-nav{
+.gabriela-font {
+  font-family: "Gabriela", serif;
+}
+
+nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,8 +15,8 @@ nav{
   color: white;
 }
 
-.nav-links{
-  width:40%;
+.nav-links {
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
