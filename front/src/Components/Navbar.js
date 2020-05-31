@@ -28,14 +28,20 @@ function Navbar(props) {
   );
 
   let welcome = <li>Welcome {props.user ? props.user.telefono : ""}</li>;
+  
+  let crear=  (
+    <Link style={navStyle} to="/register">
+          <strong><li>Crea un Consejo</li></strong>
+        </Link>
+  );
+
   return (
     <nav>
       <img src={require("../CamprenderLogo.png")} width="400" height="90">
       </img>
       <ul className="nav-links">
-        <Link style={navStyle} to="/register">
-          <strong><li>Crea un Consejo</li></strong>
-        </Link>
+        {!props.user ? "" : crear}
+
         <Link style={navStyle} to="/tips">
          <strong><li>Consejos</li></strong> 
         </Link>
