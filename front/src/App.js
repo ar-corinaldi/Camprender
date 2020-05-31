@@ -28,7 +28,7 @@ function App() {
         <Navbar user={user} setUser={setUser} nombre={nombre} setNombre={setNombre}></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />{" "}
-          <Route exact path="/tips" component={Tips} />{" "}
+          <Route exact path="/tips" component={() => <Tips user={user}/>} />{" "}
           <Route exact path="/tips/:tipId" component={ATip} />{" "}
           <Route exact path="/register" component={CreateTips} />{" "}
           <Route exact path="/registerUser" component={CreateUser} />{" "}

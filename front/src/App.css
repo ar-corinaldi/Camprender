@@ -11,8 +11,11 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(73, 79, 82);
+  background: rgb(168, 208, 230);
   color: white;
+}
+.pointer {
+  cursor: pointer;
 }
 
 .nav-links {

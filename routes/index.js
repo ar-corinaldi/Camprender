@@ -19,6 +19,8 @@ router.get("/tips", (req, res) => {
   mongo.tips.findAll().then((data) => res.json(data));
 });
 
+// router.get()
+
 router.post("/register", upload.single("image"), async (req, res) => {
   console.log("req.FILEEEE", req.file);
   req.body.comentarios = [];
