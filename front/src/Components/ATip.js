@@ -48,6 +48,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const capitalize = (str, lower = false) =>
+  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+    match.toUpperCase()
+  );
+
 const ATip = (props) => {
   const [showToast, setShowToast] = useState(false);
   const classes = useStyles();
@@ -103,7 +108,7 @@ Constante para dar like. Todavia no terminado
             </IconButton>
           }
           title={props.tip.titulo}
-          subheader={"Region: " + props.tip.region}
+          subheader={"Region: " + capitalize(props.tip.region)}
         />
         <CardMedia
           className={classes.media}
