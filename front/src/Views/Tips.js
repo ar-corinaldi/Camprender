@@ -216,21 +216,40 @@ function Tips(props) {
           paddingRight: "20px",
         }}
       >
-        <InputLabel htmlFor="tags">Filtrar por Region:</InputLabel>
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Filtrar por Region:</InputLabel>
+        </p>
         <input type="checkbox" id="cAtla" onChange={updateAlta} />{" "}
-        <InputLabel htmlFor="tags">Atlántica</InputLabel>
-        <input type="checkbox" id="cPac" onChange={updatePac} /> Pacífica
-        <input type="checkbox" id="cOri" onChange={updateOri} /> Orinoquía
-        <input type="checkbox" id="cAmaz" onChange={updateAmaz} /> Amazonas
-        <input type="checkbox" id="cAnd" onChange={updateAnd} /> Andina
-        <InputLabel htmlFor="tags">Filtrar por Categoría:</InputLabel>
-        <input type="checkbox" id="cAgro" onChange={updateAgro} /> Agricultura
-        <input
-          type="checkbox"
-          id="cGanaderia"
-          onChange={updateGanaderia}
-        />{" "}
-        Ganaderia
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Atlántica</InputLabel>
+        </p>
+        <input type="checkbox" id="cPac" onChange={updatePac} />
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Pacífica</InputLabel>
+        </p>
+        <input type="checkbox" id="cOri" onChange={updateOri} />
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Orinoquía</InputLabel>
+        </p>
+        <input type="checkbox" id="cAmaz" onChange={updateAmaz} />
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Amazonas</InputLabel>
+        </p>
+        <input type="checkbox" id="cAnd" onChange={updateAnd} />
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Andina</InputLabel>
+        </p>
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Filtrar por Categoría:</InputLabel>
+        </p>
+        <input type="checkbox" id="cAgro" onChange={updateAgro} />
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Agricultura</InputLabel>
+        </p>
+        <input type="checkbox" id="cGanaderia" onChange={updateGanaderia} />{" "}
+        <p style={{ marginRight: "15px" }}>
+          <InputLabel htmlFor="tags">Ganaderia</InputLabel>
+        </p>
       </div>
       <div className="d-flex flex-wrap justify-content-center">
         {filteredTips.map((element, index) => {
