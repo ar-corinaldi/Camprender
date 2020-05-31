@@ -21,13 +21,26 @@ function Home(props) {
   
 
   const classes = useStyles();
+
+  const butStyle={
+    color: 'Black'
+  };
   return (
 
+    
     <div>
-      //<img
-        //src="https://png.pngtree.com/element_our/md/20180411/md_5ace0628840fa.jpg"
+      <img
+        src="https://png.pngtree.com/element_our/md/20180411/md_5ace0628840fa.jpg"
         //alt="Prendas de vestir"
       ></img>
+      <ul>
+        <Link style={butStyle} to="/registerUser">
+        <li>Registrate</li>
+        </Link>
+        <Link style={butStyle} to="/login">
+        <li>Inicia Sesión</li>
+        </Link>
+      </ul>
       
     </div>
 
