@@ -43,6 +43,16 @@ function Tips(props) {
   const [search2, setSearch2] = useState("");
 
   /*
+  Const para filtrar por categoria
+  */
+  const [agro, setAgro] = useState("");
+
+  /*
+  Const para filtrar por categoria
+  */
+  const [ganaderia, setGanaderia] = useState("");
+
+  /*
   Const para buscar con base en el titulo por categoria
   */
   const [tituloBuscado, setTituloBuscado] = useState("");
@@ -59,15 +69,25 @@ function Tips(props) {
     setTituloBuscado(event.target.value.substr(0, 20));
   };
 
+  const updateAgro = (event) => {
+    console.log(agro);
+    setAgro(event.target.value.substr(0, 20));
+  };
+
+  const updateGanaderia = (event) => {
+    console.log(ganaderia);
+    setGanaderia(event.target.value.substr(0, 20));
+  };
+
   let filteredTips = state.tips.filter((tip) => {
     //console.log("Search", search);
     //console.log("Search2", search2);
     //console.log(tip);
     var cond1 = tip.region.toLowerCase().indexOf(search) !== -1;
     var cond2 = tip.tags[0].toLowerCase().indexOf(search2) !== -1;
-
     var condTitulo = tip.titulo.toLowerCase().indexOf(tituloBuscado) !== -1;
-    return condTitulo && cond1 && cond2;
+
+    return cond1; //condTitulo && cond1 && cond2;
   });
 
   useEffect(() => {
@@ -89,7 +109,6 @@ function Tips(props) {
   return (
     <div style={{ marginTop: "30px" }}>
       <InputLabel htmlFor="tags">Ingresa el titulo que te interesa</InputLabel>
-
       <input type="text" value={tituloBuscado} onChange={updateTituloBuscado} />
       <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
       <input type="text" value={search} onChange={updateSearch} />
@@ -97,6 +116,35 @@ function Tips(props) {
         Filtrar por Categoria Agro / Ganaderia
       </InputLabel>
       <input type="text" value={search2} onChange={updateSearch2} />
+
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gridRadios"
+            id="gridRadios1"
+            value={agro}
+            onChange={updateAgro}
+          />
+          <label class="form-check-label" for="gridRadios1">
+            Agricultura
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gridRadios"
+            id="gridRadios2"
+            value={ganaderia}
+            onChange={updateGanaderia}
+          />
+          <label class="form-check-label" for="gridRadios2">
+            Ganaderia
+          </label>
+        </div>
+      </div>
       {filteredTips.map((element, index) => {
         return (
           <div key={index} style={{ dispaly: "flex" }}>
