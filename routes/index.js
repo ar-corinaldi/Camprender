@@ -46,7 +46,7 @@ router.post("/register", upload.single("image"), async (req, res) => {
   mongo.tips.create(req.body).then((data) => res.json(data));
 });
 
-router.post("/tips", (req,res) => {
+router.post("/tips", (req, res) => {
   res.json(req.params);
 });
 
@@ -54,11 +54,14 @@ router.post("/registerUser", (req, res) => {
   mongo.users.create(req.body).then((data) => res.json(data));
 });
 
-router.post("/updateComment/:idTip/:idUser", function(req, res){
-  console.log(req.body);
-  console.log(req.params);
-
-  mongo.tips.updateComment(req.body, req.params.idTip, req.params.idUser).then((data)=> res.json(data));
+router.post("/updateComment/:idTip/:telefono", function (req, res) {
+  let comment = {}
+  comment.comentario = req.body.comentario;
+  comment.telefono = req.params.telefono;
+  console.log(comment);
+  mongo.tips
+    .updateComment(comment, req.params.idTip)
+    .then((data) => res.json(data));
 });
 
 module.exports = router;
