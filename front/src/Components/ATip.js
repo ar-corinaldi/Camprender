@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -51,6 +51,8 @@ const ATip = (props) => {
   const [showToast, setShowToast] = useState(false);
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
+  const [like, setLike] = useState(props.tip.likes);
+  const [dioLike, setDioLike] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -61,7 +63,15 @@ Constante para dar like. Todavia no terminado
 */
   const darLike = () => {
     if (!props.user) setShowToast(true);
-    else setShowToast(false);
+    else {
+      setShowToast(false);
+      let tmpLikes = like;
+      if (dioLike) setLike(tmpLikes - 1);
+      else setLike(tmpLikes + 1);
+      setDioLike(!dioLike);
+      console.log(props.tip);
+      fetch("/tip/:id");
+    }
   };
 
   let comments = null;
@@ -77,7 +87,6 @@ Constante para dar like. Todavia no terminado
       })}
     </div>
   );
-
   return (
     <div>
       <Card className={classes.root}>
@@ -93,7 +102,7 @@ Constante para dar like. Todavia no terminado
             </IconButton>
           }
           title={props.tip.titulo}
-          subheader="September 14, 2016"
+          subheader={"Region: " + props.tip.region}
         />
         <CardMedia
           className={classes.media}
@@ -104,8 +113,6 @@ Constante para dar like. Todavia no terminado
           <Typography variant="body2" color="textSecondary" component="p">
             {props.tip.descripcion}
             <br></br>
-            Region:
-            {props.tip.region}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -117,9 +124,15 @@ Constante para dar like. Todavia no terminado
               size="small"
             />
           </form>
-          <IconButton color="secondary" onClick={darLike}>
+          <Badge
+            className="pointer"
+            color="secondary"
+            onClick={darLike}
+            badgeContent={like}
+            showZero
+          >
             <FavoriteIcon />
-          </IconButton>
+          </Badge>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
@@ -139,7 +152,12 @@ Constante para dar like. Todavia no terminado
         </Collapse>
       </Card>
       <p></p>
-      <ToastComponent show={showToast} setShow={setShowToast} title="Login required" body="You must login to like the tip"/>
+      <ToastComponent
+        show={showToast}
+        setShow={setShowToast}
+        title="Login required"
+        body="You must login to like the tip"
+      />
     </div>
   );
 };
