@@ -1,4 +1,4 @@
-import React,{useRef} from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -20,7 +20,7 @@ import Button from "@material-ui/core/Badge";
 import Badge from "@material-ui/core/Badge";
 import TextField from "@material-ui/core/TextField";
 import Comment from "./Comment";
-import Input from "@material-ui/core/Input"
+import Input from "@material-ui/core/Input";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,7 +54,6 @@ const ATip = (props) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  let refComentario = useRef();
 
   /*
 Constante para dar like. Todavia no terminado
@@ -74,20 +73,6 @@ Constante para dar like. Todavia no terminado
       })}
     </div>
   );
-
-  const fetching = async () => {
-    let formContent = new FormData(document.getElementById("formComment"))
-    console.log(formContent);
-    console.log(refComentario); 
-    
-    fetch("/updateComment",{method: 'POST',
-    // or 'PUT'
-    headers: {'Accept': 'application/json','Content-Type': 'application/json'},
-    body: JSON.stringify(formContent), // data can be `string` or {object}!
-    headers:{
-      'Content-Type': 'application/json'
-    }});
-  };
 
   return (
     <div>
@@ -120,14 +105,16 @@ Constante para dar like. Todavia no terminado
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <form method="POST" onSubmit={fetching} id="formComment">
+          <form method="POST" action={`/updateComment/"${props.tip._id}/{$user.telefono}`}>
             <div className="form-group">
-            <input placeholder="Añade un comentario" 
-            name="comentario"  
-            required type="text" 
-            id="comentario"
-             className="form-control"
-             ref={refComentario}/>
+              <input
+                placeholder="Añade un comentario"
+                name="comentario"
+                required
+                type="text"
+                id="comentario"
+                className="form-control"
+              />
             </div>
           </form>
           <IconButton color="secondary" onClick={darLike}>

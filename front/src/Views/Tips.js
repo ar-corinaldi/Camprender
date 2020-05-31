@@ -122,7 +122,7 @@ function Tips(props) {
         {filteredTips.map((element, index) => {
           return (
             <div key={index} style={{ dispaly: "flex" }} className="m-2">
-              <ATip style={{ float: "left" }} tip={element}></ATip>
+              <ATip style={{ float: "left" }} tip={element} user={props.user}></ATip>
             </div>
           );
         })}

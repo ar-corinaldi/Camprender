@@ -71,17 +71,24 @@ function MongoUtils() {
     });
   };
 
-  mu.tips.updateComment = (comment) => {
+  mu.tips.updateComment = (comment, _id) => {
     return mu.connect().then((client) => {
       const tips = client.db(DB_NAME).collection("Tips");
-      console.log("Comentario");
-      console.log(comment.comentario);
-      return tips.
-      updateOne({"_id":ObjectId("5ed2f341b23e8d7520da1408")},{$addToSet:{comentarios: 
-        {
-          comentario:comment.comentario,
-          telefono: "9879879"
-        }}})
+      tips.findOne().then((tip) => {
+        tip.commentarios.push(comment);
+      });
+      console.log("tip updated", tip);
+      // return tips.findAndUpdate(
+      //   { _id: ObjectId(_id) },
+      //   {
+      //     $addToSet: {
+      //       comentarios: {
+      //         comentario: comment.comentario,
+      //         telefono: "9879879",
+      //       },
+      //     },
+      //   }
+      // );
     });
   };
 
