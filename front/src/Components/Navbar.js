@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import { rgbToHex, hexToRgb } from "@material-ui/core";
 
 function Navbar(props) {
   const navStyle = {
-    color: "white",
+    color: hexToRgb("#F76C6C"),
   };
 
   let history = useHistory();
@@ -29,9 +30,8 @@ function Navbar(props) {
   let welcome = <li>Welcome {props.user ? props.user.telefono : ""}</li>;
   return (
     <nav>
-      <Link style={navStyle} to="/">
-        <strong><h3>Logo</h3></strong>
-      </Link>
+      <img src={require("../CamprenderLogo.png")} width="400" height="90">
+      </img>
       <ul className="nav-links">
         <Link style={navStyle} to="/register">
           <strong><li>Crea un Consejo</li></strong>

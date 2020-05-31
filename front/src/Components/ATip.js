@@ -44,9 +44,14 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: "#F76C6C",
   },
 }));
+
+const capitalize = (str, lower = false) =>
+  (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
+    match.toUpperCase()
+  );
 
 const ATip = (props) => {
   const [showToast, setShowToast] = useState(false);
@@ -62,9 +67,14 @@ const ATip = (props) => {
   /*
 Constante para dar like. Todavia no terminado
 */
+  let telefono = "";
+
   const darLike = () => {
     if (!props.user) setShowToast(true);
     else {
+      telefono = props.user.telefono;
+      console.log(telefono);
+      console.log(props.user.telefono);
       setShowToast(false);
       let tmpLikes = like;
       if (dioLike) setLike(tmpLikes - 1);
@@ -74,7 +84,6 @@ Constante para dar like. Todavia no terminado
       fetch("/tip/:id");
     }
   };
-
   let comments = null;
   let filteredTips = props.tip.comentarios;
   comments = (
@@ -88,6 +97,38 @@ Constante para dar like. Todavia no terminado
       })}
     </div>
   );
+
+  const disabled = (
+    <input
+      placeholder="Añade un comentario"
+      name="comentario"
+      required
+      type="text"
+      id="comentario"
+      className="form-control"
+      disabled
+    />
+  );
+
+  const enabled = (
+    <input
+      placeholder="Añade un comentario"
+      name="comentario"
+      required
+      type="text"
+      id="comentario"
+      className="form-control"
+      enabled
+    />
+  );
+
+  const hacerComentario = (evt) => {
+    console.log("llega");
+    telefono = props.user.telefono;
+    console.log(telefono);
+    console.log(props.user.telefono);
+  };
+
   return (
     <div>
       <Card className={classes.root}>
@@ -103,7 +144,7 @@ Constante para dar like. Todavia no terminado
             </IconButton>
           }
           title={props.tip.titulo}
-          subheader={"Region: " + props.tip.region}
+          subheader={"Region: " + capitalize(props.tip.region)}
         />
         <CardMedia
           className={classes.media}
@@ -117,18 +158,25 @@ Constante para dar like. Todavia no terminado
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <form method="POST" action={`/updateComment/"${props.tip._id}/{$user.telefono}`}>
-            <div className="form-group">
-              <input
-                placeholder="Añade un comentario"
-                name="comentario"
-                required
-                type="text"
-                id="comentario"
-                className="form-control"
-              />
-            </div>
-          </form>
+          {props.user ? (
+            <form
+              method="POST"
+              action={`/updateComment/${props.tip._id}/${props.user.telefono}`}
+            >
+              <div className="form-group">
+                {props.user ? enabled : disabled}
+              </div>
+            </form>
+          ) : (
+            <form
+              method="POST"
+              action={`/updateComment/${props.tip._id}/${telefono}`}
+            >
+              <div className="form-group">
+                {props.user ? enabled : disabled}
+              </div>
+            </form>
+          )}
           <Badge
             className="pointer"
             color="secondary"
