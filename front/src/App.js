@@ -16,7 +16,6 @@ function App() {
   const [nombre, setNombre] = useState("prueba");
   return (
     <div className="App">
-      <header className="App-header">Hello World!</header>
       <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
       <Router>
         <Switch>
