@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useRef} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -20,6 +20,7 @@ import Button from "@material-ui/core/Badge";
 import Badge from "@material-ui/core/Badge";
 import TextField from "@material-ui/core/TextField";
 import Comment from "./Comment";
+import Input from "@material-ui/core/Input"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +54,7 @@ const ATip = (props) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  let refComentario = useRef();
 
   /*
 Constante para dar like. Todavia no terminado
@@ -72,6 +74,15 @@ Constante para dar like. Todavia no terminado
       })}
     </div>
   );
+
+  const fetching = async () => {
+    fetch("/updateComment",{method: 'POST',
+    // or 'PUT'
+    body: JSON.stringify(refComentario.value), // data can be `string` or {object}!
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  };
 
   return (
     <div>
@@ -104,13 +115,15 @@ Constante para dar like. Todavia no terminado
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <form>
-            <TextField
-              id="outlined-uncontrolled"
-              label="Añade Comentario "
-              variant="outlined"
-              size="small"
-            />
+          <form method="POST" onSubmit={fetching}>
+            <div className="form-group">
+            <input placeholder="Añade un comentario" 
+            name="comentario"  
+            required type="text" 
+            id="comentario"
+             className="form-control"
+             ref={refComentario}/>
+            </div>
           </form>
           <IconButton color="secondary" onClick={darLike}>
             <FavoriteIcon />

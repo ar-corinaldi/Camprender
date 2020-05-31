@@ -51,4 +51,16 @@ router.post("/tips", (req,res) => {
 router.post("/registerUser", (req, res) => {
   mongo.users.create(req.body).then((data) => res.json(data));
 });
+
+router.post("/updateComment", function(req, res){
+  console.log("1 comentario post");
+  console.log(req.body);
+  mongo.tips.updateComment(req.body).then((data)=> res.json(data));
+});
+
+router.get("/updateComment", function(req, res){
+  console.log("1 comentario");
+  console.log(req.body);
+  mongo.tips.updateComment(req.body).then((data)=> res.json(data));
+});
 module.exports = router;
