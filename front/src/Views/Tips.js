@@ -97,6 +97,12 @@ function Tips(props) {
 
   return (
     <div style={{ marginTop: "30px" }}>
+      <div
+        class="input-group"
+        style={{ paddingLeft: "20px", paddingRight: "20px" }}
+      >
+        <input type="text" name="searchtext" value="" class="sinbordefondo" />
+      </div>
       <InputLabel htmlFor="tags">Ingresa el titulo que te interesa</InputLabel>
       <input
         type="text"

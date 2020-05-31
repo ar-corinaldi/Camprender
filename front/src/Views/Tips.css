@@ -1,4 +1,6 @@
 .sinbordefondo {
-   border-radius: 5px;
-   border: 1px solid #39c;
- }
+  border-radius: 5px;
+  border: 1px solid #39c;
+  padding-left: "20px";
+  padding-right: "20px";
+}
