@@ -75,7 +75,6 @@ function MongoUtils() {
     return mu.connect().then((client) => {
       const tips = client.db(DB_NAME).collection("Tips");
       tips.findOne().then((tip) => {
-<<<<<<< HEAD
         tip.comentarios.push(comment);
         console.log("tip updated", tip);
         
@@ -85,25 +84,6 @@ function MongoUtils() {
       });
     });
   };
-=======
-        tip.commentarios.push(comment);
-      });
-      console.log("tip updated", tip);
-      // return tips.findAndUpdate(
-      //   { _id: ObjectId(_id) },
-      //   {
-      //     $addToSet: {
-      //       comentarios: {
-      //         comentario: comment.comentario,
-      //         telefono: "9879879",
-      //       },
-      //     },
-      //   }
-      // );
-    });
-  };
-
->>>>>>> 1ce41b608988b69e7c5371b994b09611c724c969
   return mu;
 }
 

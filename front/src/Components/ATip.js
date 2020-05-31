@@ -158,7 +158,6 @@ Constante para dar like. Todavia no terminado
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-<<<<<<< HEAD
           {props.user ? (
             <form
               method="POST"
@@ -178,20 +177,6 @@ Constante para dar like. Todavia no terminado
               </div>
             </form>
           )}
-=======
-          <form method="POST" action={`/updateComment/"${props.tip._id}/{$user.telefono}`}>
-            <div className="form-group">
-              <input
-                placeholder="Añade un comentario"
-                name="comentario"
-                required
-                type="text"
-                id="comentario"
-                className="form-control"
-              />
-            </div>
-          </form>
->>>>>>> 1ce41b608988b69e7c5371b994b09611c724c969
           <Badge
             className="pointer"
             color="secondary"
