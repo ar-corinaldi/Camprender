@@ -101,23 +101,35 @@ function Tips(props) {
         class="input-group"
         style={{ paddingLeft: "20px", paddingRight: "20px" }}
       >
-        <input type="text" name="searchtext" value="" class="sinbordefondo" />
+        <input //,textAlign: "left"
+          type="text"
+          placeholder="Busca el consejo que necesites"
+          class="form-control"
+          value={tituloBuscado}
+          onChange={updateTituloBuscado}
+        />
       </div>
-      <InputLabel htmlFor="tags">Ingresa el titulo que te interesa</InputLabel>
-      <input
-        type="text"
-        class="sinbordefondo"
-        value={tituloBuscado}
-        onChange={updateTituloBuscado}
-      />
-      <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
-      <input type="text" value={search} onChange={updateSearch} />
-      <InputLabel htmlFor="tags">
-        Filtrar por Categoria Agro / Ganaderia
-      </InputLabel>
-      <input type="checkbox" id="cAgro" onChange={updateAgro} /> Agricultura
-      <input type="checkbox" id="cGanaderia" onChange={updateGanaderia} />{" "}
-      Ganaderia
+      <div
+        class="input-group"
+        style={{
+          paddingTop: "5px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+        }}
+      >
+        <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
+        <input type="text" value={search} onChange={updateSearch} />
+        <InputLabel htmlFor="tags">
+          Filtrar por Categoria Agro / Ganaderia
+        </InputLabel>
+        <input type="checkbox" id="cAgro" onChange={updateAgro} /> Agricultura
+        <input
+          type="checkbox"
+          id="cGanaderia"
+          onChange={updateGanaderia}
+        />{" "}
+        Ganaderia
+      </div>
       <div className="d-flex flex-wrap justify-content-center">
         {filteredTips.map((element, index) => {
           return (
