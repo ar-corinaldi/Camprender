@@ -164,7 +164,7 @@ function CreateTips(props) {
                         required
                       />
                     </div>
-                    <button type="submit" className="btn">
+                    <button type="submit" class="btn btn-primary">
                       Crear
                     </button>
                   </form>
