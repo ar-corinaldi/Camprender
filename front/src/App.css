@@ -12,7 +12,7 @@ nav {
   align-items: center;
   min-height: 10vh;
   background: rgb(168, 208, 230);
-  color: white;
+  color: black;
 }
 .pointer {
   cursor: pointer;
