@@ -24,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        
         <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />{" "}
