@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ATip from "../Components/ATip";
 import InputLabel from "@material-ui/core/InputLabel";
-import './Tips.css'; // Tell webpack that Button.js uses these styles
+import "./Tips.css"; // Tell webpack that Button.js uses these styles
 
 function Tips(props) {
   const [state, setState] = useState({ tips: [] });
@@ -18,7 +18,7 @@ function Tips(props) {
   /*
   Const para filtrar por categoria
   */
-  const [agro, setAgro] = useState(0);
+  const [agro, setAgro] = useState("");
 
   /*
   Const para filtrar por categoria
@@ -98,7 +98,12 @@ function Tips(props) {
   return (
     <div style={{ marginTop: "30px" }}>
       <InputLabel htmlFor="tags">Ingresa el titulo que te interesa</InputLabel>
-      <input type="text" class="sinbordefondo" value={tituloBuscado} onChange={updateTituloBuscado} />
+      <input
+        type="text"
+        class="sinbordefondo"
+        value={tituloBuscado}
+        onChange={updateTituloBuscado}
+      />
       <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
       <input type="text" value={search} onChange={updateSearch} />
       <InputLabel htmlFor="tags">
@@ -111,7 +116,11 @@ function Tips(props) {
         {filteredTips.map((element, index) => {
           return (
             <div key={index} style={{ dispaly: "flex" }} className="m-2">
-              <ATip user={props.user} style={{ float: "left" }} tip={element}></ATip>
+              <ATip
+                user={props.user}
+                style={{ float: "left" }}
+                tip={element}
+              ></ATip>
             </div>
           );
         })}
