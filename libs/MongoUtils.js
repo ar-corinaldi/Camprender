@@ -69,6 +69,20 @@ function MongoUtils() {
       return users.insertOne(user).finally(() => client.close());
     });
   };
+
+  mu.tips.updateComment = (comment, _id) => {
+    return mu.connect().then((client) => {
+      const tips = client.db(DB_NAME).collection("Tips");
+      tips.findOne().then((tip) => {
+        tip.comentarios.push(comment);
+        console.log("tip updated", tip);
+        
+        return tips
+          .findOneAndUpdate({ _id: ObjectId(_id) }, { $set: { tip } })
+          .finally(() => client.close());
+      });
+    });
+  };
   return mu;
 }
 
