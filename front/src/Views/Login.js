@@ -66,7 +66,7 @@ function Login(props) {
                       />
                     </div>
                     <button type="submit" className="btn">
-                      Submit
+                      Ingresa
                     </button>
                   </form>
                   <div className="register">
@@ -75,7 +75,7 @@ function Login(props) {
                       className="label-input"
                       to="/register"
                     >
-                      <p>Don't have an account? Sign up</p>
+                      <p>¿No tienes una cuenta? Oprime aquí</p>
                     </Link>
                   </div>
                 </div>
