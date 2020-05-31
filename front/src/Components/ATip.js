@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -54,6 +54,7 @@ const capitalize = (str, lower = false) =>
   );
 
 const ATip = (props) => {
+  const refComentario = useRef();
   const [showToast, setShowToast] = useState(false);
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
@@ -119,6 +120,7 @@ Constante para dar like. Todavia no terminado
       id="comentario"
       className="form-control"
       enabled
+      ref={refComentario}
     />
   );
 
@@ -127,6 +129,19 @@ Constante para dar like. Todavia no terminado
     telefono = props.user.telefono;
     console.log(telefono);
     console.log(props.user.telefono);
+  };
+
+  const [comentarios, setComentarios] = useState(props.tip.comentarios);
+
+  const submit = (evt) => {
+    evt.preventDefault();
+    let newComentario = comentarios;
+    let coment = {};
+    coment.telefono = props.user.telefono;
+    coment.comentario = refComentario.current.value;
+    newComentario.push(coment);
+    setComentarios(newComentario);
+    console.log("nuevo comentarios", newComentario);
   };
 
   return (
@@ -159,19 +174,11 @@ Constante para dar like. Todavia no terminado
         </CardContent>
         <CardActions disableSpacing>
           {props.user ? (
-            <form
-              method="POST"
-              action={`/updateComment/${props.tip._id}/${props.user.telefono}`}
-            >
-              <div className="form-group">
-                {props.user ? enabled : disabled}
-              </div>
+            <form onSubmit={submit}>
+              <div className="form-group">{enabled}</div>
             </form>
           ) : (
-            <form
-              method="POST"
-              action={`/updateComment/${props.tip._id}/${telefono}`}
-            >
+            <form onSubmit={submit}>
               <div className="form-group">
                 {props.user ? enabled : disabled}
               </div>
@@ -200,10 +207,10 @@ Constante para dar like. Todavia no terminado
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>Comentarios:</Typography>
-            {props.tip.comentarios.map((element) => (
+            {comentarios.map((element) => (
               <div key={element.telefono}>
                 <p>
-                  {element.telefono} y {element.comentario}
+                  {element.telefono}: {element.comentario}
                 </p>
               </div>
             ))}
