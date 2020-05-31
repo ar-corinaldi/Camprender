@@ -62,9 +62,12 @@ function Tips(props) {
   let filteredTips = state.tips.filter((tip) => {
     //console.log("Search", search);
     //console.log("Search2", search2);
+    //console.log(tip);
     var cond1 = tip.region.toLowerCase().indexOf(search) !== -1;
     var cond2 = tip.tags[0].toLowerCase().indexOf(search2) !== -1;
-    return cond1 && cond2;
+
+    var condTitulo = tip.titulo.toLowerCase().indexOf(tituloBuscado) !== -1;
+    return condTitulo && cond1 && cond2;
   });
 
   useEffect(() => {
@@ -85,6 +88,9 @@ function Tips(props) {
 
   return (
     <div style={{ marginTop: "30px" }}>
+      <InputLabel htmlFor="tags">Ingresa el titulo que te interesa</InputLabel>
+
+      <input type="text" value={tituloBuscado} onChange={updateTituloBuscado} />
       <InputLabel htmlFor="tags">Filtrar por Region</InputLabel>
       <input type="text" value={search} onChange={updateSearch} />
       <InputLabel htmlFor="tags">
