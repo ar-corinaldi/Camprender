@@ -66,8 +66,8 @@ Constante para dar like. Todavia no terminado
     else {
       setShowToast(false);
       let tmpLikes = like;
-      if( dioLike ) setLike(tmpLikes-1);
-      else setLike(tmpLikes+1);
+      if (dioLike) setLike(tmpLikes - 1);
+      else setLike(tmpLikes + 1);
       setDioLike(!dioLike);
     }
   };
@@ -100,7 +100,7 @@ Constante para dar like. Todavia no terminado
             </IconButton>
           }
           title={props.tip.titulo}
-          subheader="September 14, 2016"
+          subheader={"Region: " + props.tip.region}
         />
         <CardMedia
           className={classes.media}
