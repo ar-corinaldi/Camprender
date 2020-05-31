@@ -15,6 +15,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ChatBubbleTwoToneIcon from '@material-ui/icons/ChatBubbleTwoTone';
+import Badge from '@material-ui/core/Badge'
+import TextField from '@material-ui/core/TextField'
 import Comment from './Comment';
 
 const useStyles = makeStyles((theme) => ({
@@ -66,6 +69,7 @@ const ATip = (props) => {
     )
 
     return (
+    <div>
         <Card className={classes.root}>
             <CardHeader
                 avatar={
@@ -92,12 +96,12 @@ const ATip = (props) => {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
+                <form>
+                <TextField id="outlined-uncontrolled" label="Añade Comentario " variant="outlined" size="small"/>
+            </form>
+            <Badge color="secondary" badgeContent={props.tip.likes} showZero>
+                <FavoriteIcon />
+                </Badge>
                 <IconButton
                     className={clsx(classes.expand, {
                         [classes.expandOpen]: expanded,
@@ -116,6 +120,8 @@ const ATip = (props) => {
                 </CardContent>
             </Collapse>
         </Card>
+        <p></p>
+    </div>  
     );
 }
 
