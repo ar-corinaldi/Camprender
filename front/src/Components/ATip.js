@@ -76,9 +76,14 @@ Constante para dar like. Todavia no terminado
   );
 
   const fetching = async () => {
+    let formContent = new FormData(document.getElementById("formComment"))
+    console.log(formContent);
+    console.log(refComentario); 
+    
     fetch("/updateComment",{method: 'POST',
     // or 'PUT'
-    body: JSON.stringify(refComentario.value), // data can be `string` or {object}!
+    headers: {'Accept': 'application/json','Content-Type': 'application/json'},
+    body: JSON.stringify(formContent), // data can be `string` or {object}!
     headers:{
       'Content-Type': 'application/json'
     }});
@@ -115,7 +120,7 @@ Constante para dar like. Todavia no terminado
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <form method="POST" onSubmit={fetching}>
+          <form method="POST" onSubmit={fetching} id="formComment">
             <div className="form-group">
             <input placeholder="Añade un comentario" 
             name="comentario"  
