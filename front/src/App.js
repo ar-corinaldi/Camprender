@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Views/Navbar";
 
-import Tips from "./Container/Tips";
-import ATip from "./Components/ATip";
+import Tips from "./Views/Tips";
+import ATip from "./Views/ATip";
 
 import Home from "./Views/Home";
 

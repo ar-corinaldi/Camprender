@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ATip from "../Components/ATip";
+import ATip from "./ATip";
 
 function Tips(props) {
   let tempState = {
