@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <Router>
         
-        <Navbar nombre={nombre} setNombre={setNombre}></Navbar>
+        <Navbar user={user} nombre={nombre} setNombre={setNombre}></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />{" "}
           <Route exact path="/tips" component={Tips} />{" "}
