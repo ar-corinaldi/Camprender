@@ -4,7 +4,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 
 function Tips(props) {
   const [state, setState] = useState({ tips: [] });
-
   /*
   Const para filtrar por region
   */
@@ -119,7 +118,7 @@ function Tips(props) {
         {filteredTips.map((element, index) => {
           return (
             <div key={index} style={{ dispaly: "flex" }} className="m-2">
-              <ATip style={{ float: "left" }} tip={element}></ATip>
+              <ATip user={props.user} style={{ float: "left" }} tip={element}></ATip>
             </div>
           );
         })}

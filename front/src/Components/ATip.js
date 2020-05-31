@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -20,6 +20,7 @@ import Button from "@material-ui/core/Badge";
 import Badge from "@material-ui/core/Badge";
 import TextField from "@material-ui/core/TextField";
 import Comment from "./Comment";
+import ToastComponent from "./ToastComponent";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ATip = (props) => {
+  const [showToast, setShowToast] = useState(false);
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
@@ -57,7 +59,10 @@ const ATip = (props) => {
   /*
 Constante para dar like. Todavia no terminado
 */
-  const darLike = () => {};
+  const darLike = () => {
+    if (!props.user) setShowToast(true);
+    else setShowToast(false);
+  };
 
   let comments = null;
   let filteredTips = props.tip.comentarios;
@@ -134,6 +139,7 @@ Constante para dar like. Todavia no terminado
         </Collapse>
       </Card>
       <p></p>
+      <ToastComponent show={showToast} setShow={setShowToast} title="Login required" body="You must login to like the tip"/>
     </div>
   );
 };
